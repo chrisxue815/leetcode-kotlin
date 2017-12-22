@@ -10,6 +10,7 @@ buildscript {
 
     dependencies {
         classpath(kotlinModule("gradle-plugin", kotlinVersion))
+        classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.3")
     }
 }
 
@@ -18,6 +19,7 @@ version = "1.0"
 apply {
     plugin("java")
     plugin("kotlin")
+    plugin("org.junit.platform.gradle.plugin")
 }
 
 val kotlinVersion: String by extra
@@ -28,7 +30,8 @@ repositories {
 
 dependencies {
     compile(kotlinModule("stdlib-jdk8", kotlinVersion))
-    testCompile("junit", "junit", "4.12")
+    compile("org.junit.jupiter", "junit-jupiter-api", "5.0.3")
+    compile("org.junit.jupiter", "junit-jupiter-params", "5.0.3")
 }
 
 configure<JavaPluginConvention> {
