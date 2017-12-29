@@ -37,7 +37,7 @@ fun TreeNode?.serialize(): ArrayList<Int?> {
     return result
 }
 
-fun ArrayList<Int?>.deserialize(): TreeNode? {
+fun Iterable<Int?>.deserialize(): TreeNode? {
     val dummy = TreeNode()
     val queue = ArrayDeque<Pair<TreeNode, Int>>()
     queue.add(Pair(dummy, 0))
@@ -62,11 +62,10 @@ fun ArrayList<Int?>.deserialize(): TreeNode? {
     return dummy.left
 }
 
-
 class TreeNodeTest {
     @ParameterizedTest
     @MethodSource("createTestData")
-    fun test(values: ArrayList<Int?>) {
+    fun test(values: Iterable<Int?>) {
         val actual = values.deserialize().serialize()
         Assertions.assertEquals(values, actual)
     }

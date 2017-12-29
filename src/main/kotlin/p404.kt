@@ -38,7 +38,7 @@ class Solution {
 class SolutionTest {
     @ParameterizedTest
     @MethodSource("createTestData")
-    fun test(root: ArrayList<Int?>, expected: Int) {
+    fun test(root: List<Int?>, expected: Int) {
         val root = root.deserialize()
         val actual = Solution().sumOfLeftLeaves(root)
         assertEquals(expected, actual)
@@ -48,7 +48,7 @@ class SolutionTest {
         @JvmStatic
         fun createTestData(): Stream<Arguments> {
             return Stream.of(
-                    Arguments.of(arrayListOf(3, 9, 20, null, null, 15, 7), 24)
+                    Arguments.of(listOf(3, 9, 20, null, null, 15, 7), 24)
             )
         }
     }
