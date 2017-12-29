@@ -10,12 +10,16 @@ import java.util.stream.Stream
 
 // O(n) time. O(log(n)) space. Recursive pre-order traversal.
 class Solution {
-    fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
+    tailrec fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
         if (p == null || q == null) {
             return p === q
         }
 
-        return p.`val` == q.`val` && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+        if (p.`val` != q.`val`) return false
+
+        if (!isSameTree(p.left, q.left)) return false
+
+        return isSameTree(p.right, q.right)
     }
 }
 
