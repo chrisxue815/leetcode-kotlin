@@ -23,6 +23,7 @@ class Solution {
             if (left != null && left.left == null && left.right == null) {
                 sum += left.`val`
             } else {
+                @Suppress("NON_TAIL_RECURSIVE_CALL")
                 dfs(left)
             }
 
@@ -38,8 +39,8 @@ class Solution {
 class SolutionTest {
     @ParameterizedTest
     @MethodSource("createTestData")
-    fun test(root: List<Int?>, expected: Int) {
-        val root = root.deserialize()
+    fun test(rootList: List<Int?>, expected: Int) {
+        val root = rootList.deserialize()
         val actual = Solution().sumOfLeftLeaves(root)
         assertEquals(expected, actual)
     }

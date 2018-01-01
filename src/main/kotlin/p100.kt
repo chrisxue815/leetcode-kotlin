@@ -17,6 +17,7 @@ class Solution {
 
         if (p.`val` != q.`val`) return false
 
+        @Suppress("NON_TAIL_RECURSIVE_CALL")
         if (!isSameTree(p.left, q.left)) return false
 
         return isSameTree(p.right, q.right)
@@ -26,9 +27,9 @@ class Solution {
 class SolutionTest {
     @ParameterizedTest
     @MethodSource("createTestData")
-    fun test(p: List<Int?>, q: List<Int?>, expected: Boolean) {
-        val p = p.deserialize()
-        val q = q.deserialize()
+    fun test(pList: List<Int?>, qList: List<Int?>, expected: Boolean) {
+        val p = pList.deserialize()
+        val q = qList.deserialize()
         val actual = Solution().isSameTree(p, q)
         assertEquals(expected, actual)
     }

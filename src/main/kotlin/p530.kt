@@ -20,6 +20,7 @@ class Solution {
                 return
             }
 
+            @Suppress("NON_TAIL_RECURSIVE_CALL")
             dfs(root.left)
 
             if (prev != -1) {
@@ -40,8 +41,8 @@ class Solution {
 class SolutionTest {
     @ParameterizedTest
     @MethodSource("createTestData")
-    fun test(root: List<Int>, expected: Int) {
-        val root = root.deserialize()
+    fun test(rootList: List<Int>, expected: Int) {
+        val root = rootList.deserialize()
         val actual = Solution().getMinimumDifference(root)
         assertEquals(expected, actual)
     }

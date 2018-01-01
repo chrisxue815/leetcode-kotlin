@@ -33,8 +33,8 @@ class Solution {
 class SolutionTest {
     @ParameterizedTest
     @MethodSource("createTestData")
-    fun test(root: List<Int?>, expected: Int) {
-        val root = root.deserialize()
+    fun test(rootList: List<Int?>, expected: Int) {
+        val root = rootList.deserialize()
         val actual = Solution().findTilt(root)
         assertEquals(expected, actual)
     }
