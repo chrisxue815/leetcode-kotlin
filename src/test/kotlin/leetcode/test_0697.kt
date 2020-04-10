@@ -1,10 +1,9 @@
-package leetcode.p697
+package leetcode.test_0697
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.MethodSource
-import java.util.stream.Stream
+import kotlinx.serialization.Serializable
+import leetcode.util.loadTestJson
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 // O(n) time. O(n) space. Hash table.
 class Solution {
@@ -42,22 +41,22 @@ class Solution {
 }
 
 class SolutionTest {
-    @ParameterizedTest
-    @MethodSource("createTestData")
-    fun test(nums: Array<Int>, expected: Int) {
-        val actual = Solution().findShortestSubArray(nums.toIntArray())
-        assertEquals(expected, actual)
-    }
+    @Test
+    fun test() {
+        val testData = loadTestJson(javaClass.packageName, TestJson.serializer())
 
-    companion object {
-        @JvmStatic
-        fun createTestData(): Stream<Arguments> {
-            return Stream.of(
-                    Arguments.of(arrayOf(1, 2, 3), 1),
-                    Arguments.of(arrayOf(1, 2, 2, 3, 1), 2),
-                    Arguments.of(arrayOf(1, 2, 2, 3, 1, 4, 2), 6),
-                    Arguments.of(arrayOf(2, 2, 1, 4, 1, 3, 3), 2)
-            )
+        for (case in testData.test_cases) {
+            val actual = Solution().findShortestSubArray(case.args.nums)
+            assertEquals(actual, case.expected)
         }
     }
+
+    @Serializable
+    class TestJson(val test_cases: List<TestCase>)
+
+    @Serializable
+    class TestCase(val args: Args, val expected: Int)
+
+    @Serializable
+    class Args(val nums: IntArray)
 }

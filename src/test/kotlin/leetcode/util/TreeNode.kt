@@ -1,12 +1,10 @@
 package leetcode.util
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.MethodSource
 import java.util.*
 import java.util.stream.Stream
 import kotlin.collections.ArrayList
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class TreeNode(var `val`: Int = 0) {
     var left: TreeNode? = null
@@ -63,24 +61,20 @@ fun Iterable<Int?>.deserialize(): TreeNode? {
 }
 
 class TreeNodeTest {
-    @ParameterizedTest
-    @MethodSource("createTestData")
-    fun test(values: Iterable<Int?>) {
-        val actual = values.deserialize().serialize()
-        Assertions.assertEquals(values, actual)
-    }
+    @Test
+    fun test() {
+        val testCases = Stream.of(
+            (arrayListOf(1, 2, 3, 4, 5, 6, 7)),
+            (ArrayList()),
+            (arrayListOf(1)),
+            (arrayListOf(1, null, 2, null, 3)),
+            (arrayListOf(1, 2, 3, 4, null, null, 5)),
+            (arrayListOf(1, 2, 3, null, 4, 5))
+        )
 
-    companion object {
-        @JvmStatic
-        fun createTestData(): Stream<Arguments> {
-            return Stream.of(
-                    Arguments.of(arrayListOf(1, 2, 3, 4, 5, 6, 7)),
-                    Arguments.of(ArrayList<Int?>()),
-                    Arguments.of(arrayListOf(1)),
-                    Arguments.of(arrayListOf(1, null, 2, null, 3)),
-                    Arguments.of(arrayListOf(1, 2, 3, 4, null, null, 5)),
-                    Arguments.of(arrayListOf(1, 2, 3, null, 4, 5))
-            )
+        for (case in testCases) {
+            val actual = case.deserialize().serialize()
+            assertEquals(case, actual)
         }
     }
 }

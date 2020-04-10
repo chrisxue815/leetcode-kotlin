@@ -1,12 +1,11 @@
-package leetcode.p530
+package leetcode.test_0530
 
+import kotlinx.serialization.Serializable
 import leetcode.util.TreeNode
 import leetcode.util.deserialize
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.MethodSource
-import java.util.stream.Stream
+import leetcode.util.loadTestJson
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 
 // O(n) time. O(log(n)) space. Recursive in-order traversal.
@@ -39,20 +38,23 @@ class Solution {
 }
 
 class SolutionTest {
-    @ParameterizedTest
-    @MethodSource("createTestData")
-    fun test(rootList: List<Int>, expected: Int) {
-        val root = rootList.deserialize()
-        val actual = Solution().getMinimumDifference(root)
-        assertEquals(expected, actual)
-    }
+    @Test
+    fun test() {
+        val testData = loadTestJson(javaClass.packageName, TestJson.serializer())
 
-    companion object {
-        @JvmStatic
-        fun createTestData(): Stream<Arguments> {
-            return Stream.of(
-                    Arguments.of(listOf(1, null, 3, 2), 1)
-            )
+        for (case in testData.test_cases) {
+            val root = case.args.root.deserialize()
+            val actual = Solution().getMinimumDifference(root)
+            assertEquals(actual, case.expected)
         }
     }
+
+    @Serializable
+    class TestJson(val test_cases: List<TestCase>)
+
+    @Serializable
+    class TestCase(val args: Args, val expected: Int)
+
+    @Serializable
+    class Args(val root: List<Int?>)
 }

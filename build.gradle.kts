@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.3.71"
+    kotlin("plugin.serialization") version "1.3.71"
 }
 
 group = "org.example"
@@ -11,9 +12,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.6.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0")
+    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit"))
 }
 
 tasks {
@@ -22,9 +23,5 @@ tasks {
     }
     compileTestKotlin {
         kotlinOptions.jvmTarget = "11"
-    }
-
-    named<Test>("test") {
-        useJUnitPlatform()
     }
 }
