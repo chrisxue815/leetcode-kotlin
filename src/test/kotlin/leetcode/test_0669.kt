@@ -12,10 +12,10 @@ import kotlin.test.assertEquals
 class Solution {
     fun trimBST(root: TreeNode?, low: Int, high: Int): TreeNode? {
         fun trim(curr: TreeNode?): TreeNode? {
-            if (curr == null) {
-                return null
-            }
             return when {
+                curr == null -> {
+                    null
+                }
                 curr.`val` < low -> {
                     trim(curr.right)
                 }
