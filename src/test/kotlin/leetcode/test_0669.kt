@@ -11,36 +11,25 @@ import kotlin.test.assertEquals
 // O(n) time. O(log(n)) space. Recursive pre-order traversal.
 class Solution {
     fun trimBST(root: TreeNode?, low: Int, high: Int): TreeNode? {
-
-        fun dfs(current: TreeNode?, parent: TreeNode, isLeft: Boolean) {
-            var curr = current
-            while (curr != null) {
-                val newCurr: TreeNode?;
-                if (curr.`val` < low) {
-                    newCurr = curr.right
-                } else if (curr.`val` > high) {
-                    newCurr = curr.left
-                } else {
-                    break
-                }
-                if (isLeft) {
-                    parent.left = newCurr
-                } else {
-                    parent.right = newCurr
-                }
-                curr = newCurr
-            }
+        fun trim(curr: TreeNode?): TreeNode? {
             if (curr == null) {
-                return
+                return null
             }
-            dfs(curr.left, curr, true)
-            dfs(curr.right, curr, false)
+            return when {
+                curr.`val` < low -> {
+                    trim(curr.right)
+                }
+                curr.`val` > high -> {
+                    trim(curr.left)
+                }
+                else -> {
+                    curr.left = trim(curr.left)
+                    curr.right = trim(curr.right)
+                    curr
+                }
+            }
         }
-
-        val dummy = TreeNode(0)
-        dummy.left = root
-        dfs(root, dummy, true)
-        return dummy.left
+        return trim(root)
     }
 }
 
