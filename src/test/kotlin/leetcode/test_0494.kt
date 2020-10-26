@@ -35,7 +35,7 @@ class Solution {
             }
         }
 
-        return dp[nums.size][S]
+        return dp[nums.size][S + bound]
     }
 }
 
