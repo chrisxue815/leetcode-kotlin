@@ -22,7 +22,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().intersection(case.args.nums1, case.args.nums2)
-            assertEquals(actual.toList(), case.expected)
+            assertEquals(case.expected, actual.toList())
         }
     }
 

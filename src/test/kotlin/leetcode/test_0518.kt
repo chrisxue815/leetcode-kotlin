@@ -29,7 +29,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().change(case.args.amount, case.args.coins)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

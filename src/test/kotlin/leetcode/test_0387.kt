@@ -28,7 +28,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().firstUniqChar(case.args.s)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

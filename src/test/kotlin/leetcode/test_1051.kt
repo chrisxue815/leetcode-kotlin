@@ -26,7 +26,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().heightChecker(case.args.heights)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

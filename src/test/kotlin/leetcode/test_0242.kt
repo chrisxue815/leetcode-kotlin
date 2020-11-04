@@ -38,7 +38,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().isAnagram(case.args.s, case.args.t)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

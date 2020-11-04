@@ -33,7 +33,7 @@ class SolutionTest {
             val p = case.args.p.deserialize()
             val q = case.args.q.deserialize()
             val actual = Solution().isSameTree(p, q)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

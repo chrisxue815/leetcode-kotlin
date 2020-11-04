@@ -46,7 +46,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().findTargetSumWays(case.args.nums, case.args.S)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

@@ -34,7 +34,7 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             val actual = Solution().canConstruct(case.args.ransomNote, case.args.magazine)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

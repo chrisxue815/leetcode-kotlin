@@ -42,7 +42,7 @@ class SolutionTest {
             val root = case.args.root.deserialize()
             val actualRoot = Solution().trimBST(root, case.args.low, case.args.high)
             val actual = actualRoot.serialize()
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 

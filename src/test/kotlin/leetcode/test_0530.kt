@@ -45,7 +45,7 @@ class SolutionTest {
         for (case in testData.test_cases) {
             val root = case.args.root.deserialize()
             val actual = Solution().getMinimumDifference(root)
-            assertEquals(actual, case.expected)
+            assertEquals(case.expected, actual)
         }
     }
 
