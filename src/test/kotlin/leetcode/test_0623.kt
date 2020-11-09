@@ -9,7 +9,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 
-// O(n) time. O(n) space. Recursive DFS.
+// O(n) time. O(log(n)) space. Recursive DFS.
 class Solution {
     fun addOneRow(root: TreeNode?, v: Int, d: Int): TreeNode? {
         if (d == 1) {
