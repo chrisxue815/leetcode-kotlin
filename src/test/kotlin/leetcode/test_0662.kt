@@ -26,9 +26,6 @@ class Solution {
         while (queue.isNotEmpty()) {
             result = max(result, queue.last.index - queue.first.index + 1)
             val prevLevelSize = queue.size
-            if (result < prevLevelSize) {
-                result = prevLevelSize
-            }
 
             for (i in 0 until prevLevelSize) {
                 val curr = queue.removeFirst()
