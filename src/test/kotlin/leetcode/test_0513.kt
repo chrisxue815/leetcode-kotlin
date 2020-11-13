@@ -8,7 +8,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 
-// O(n) time. O(log(n)) space. Recursive DFS.
+// O(n) time. O(log(n)) space. Recursive pre-order DFS.
 class Solution {
     fun findBottomLeftValue(root: TreeNode?): Int {
         var result = 0
