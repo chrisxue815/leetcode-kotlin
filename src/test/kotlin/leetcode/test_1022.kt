@@ -10,6 +10,10 @@ import kotlin.test.assertEquals
 // O(n) time. O(log(n)) space. Recursive pre-order DFS, bit manipulation.
 class Solution {
     fun sumRootToLeaf(root: TreeNode?): Int {
+        if (root == null) {
+            return 0
+        }
+
         var sum = 0
 
         fun dfs(curr: TreeNode, parentNum: Int) {
@@ -17,20 +21,19 @@ class Solution {
             val right = curr.right
             val num = (parentNum shl 1) or curr.`val`
 
-            if (left != null) {
-                dfs(left, num)
-            }
-            if (right != null) {
-                dfs(right, num)
-            }
             if (left == null && right == null) {
                 sum += num
+            } else {
+                if (left != null) {
+                    dfs(left, num)
+                }
+                if (right != null) {
+                    dfs(right, num)
+                }
             }
         }
 
-        if (root != null) {
-            dfs(root, 0)
-        }
+        dfs(root, 0)
 
         return sum
     }
