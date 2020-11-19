@@ -12,10 +12,6 @@ import kotlin.test.assertEquals
 // O(n) time. O(1) space. Interval.
 class Solution {
     fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
-        if (intervals.isEmpty()) {
-            return arrayOf(newInterval)
-        }
-
         val result = ArrayList<IntArray>()
         var i = 0
 
