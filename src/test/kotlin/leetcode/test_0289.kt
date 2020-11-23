@@ -54,11 +54,8 @@ class SolutionTest {
 
         for (case in testData.test_cases) {
             Solution().gameOfLife(case.args.board)
-
-            assertEquals(case.expected.size, case.args.board.size)
-            for (i in case.args.board.indices) {
-                assertEquals(case.expected[i].asList(), case.args.board[i].asList())
-            }
+            val actual = case.args.board.map { it.asList() }.toList()
+            assertEquals(case.expected, actual)
         }
     }
 
@@ -66,7 +63,7 @@ class SolutionTest {
     class TestJson(val test_cases: List<TestCase>)
 
     @Serializable
-    class TestCase(val args: Args, val expected: Array<IntArray>)
+    class TestCase(val args: Args, val expected: List<List<Int>>)
 
     @Serializable
     class Args(val board: Array<IntArray>)
