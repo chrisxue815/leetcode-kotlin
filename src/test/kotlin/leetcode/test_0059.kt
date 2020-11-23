@@ -12,27 +12,20 @@ class Solution {
 
         var lo = 0
         var hi = n - 1
-        var i = 1
+        var i = 0
 
         while (lo <= hi) {
             for (c in lo..hi) {
-                result[lo][c] = i
-                i++
+                result[lo][c] = ++i
             }
-
             for (r in lo + 1..hi) {
-                result[r][hi] = i
-                i++
+                result[r][hi] = ++i
             }
-
             for (c in hi - 1 downTo lo) {
-                result[hi][c] = i
-                i++
+                result[hi][c] = ++i
             }
-
             for (r in hi - 1 downTo lo + 1) {
-                result[r][lo] = i
-                i++
+                result[r][lo] = ++i
             }
 
             lo++
