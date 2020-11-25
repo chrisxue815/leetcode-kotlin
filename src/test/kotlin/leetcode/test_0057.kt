@@ -3,6 +3,7 @@
 package leetcode.test_0057
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import leetcode.util.loadTestJson
 import java.lang.Integer.max
 import java.lang.Integer.min
@@ -47,10 +48,11 @@ class SolutionTest {
         val testData = loadTestJson(javaClass.packageName, TestJson.serializer())
 
         for (case in testData.test_cases) {
+            val msg = Json.encodeToString(Args.serializer(), case.args)
             val actual = Solution().insert(case.args.intervals, case.args.newInterval)
             val actualString = actual.joinToString(",") { it.contentToString() }
             val expectedString = case.expected.joinToString(",") { it.contentToString() }
-            assertEquals(expectedString, actualString)
+            assertEquals(expectedString, actualString, msg)
         }
     }
 

@@ -1,6 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
 package leetcode.test_0289
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -53,9 +56,10 @@ class SolutionTest {
         val testData = loadTestJson(javaClass.packageName, TestJson.serializer())
 
         for (case in testData.test_cases) {
+            val msg = Json.encodeToString(Args.serializer(), case.args)
             Solution().gameOfLife(case.args.board)
             val actual = case.args.board.map { it.asList() }.toList()
-            assertEquals(case.expected, actual)
+            assertEquals(case.expected, actual, msg)
         }
     }
 

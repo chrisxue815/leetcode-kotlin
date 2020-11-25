@@ -1,6 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
 package leetcode.test_0993
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import leetcode.util.TreeNode
 import leetcode.util.deserialize
 import leetcode.util.loadTestJson
@@ -22,7 +25,8 @@ class Solution {
                 if (index1 == -1) {
                     index1 = index
                 } else {
-                    result = Integer.numberOfLeadingZeros(index) == Integer.numberOfLeadingZeros(index1) && index != (index1 or 1)
+                    result =
+                        Integer.numberOfLeadingZeros(index) == Integer.numberOfLeadingZeros(index1) && index != (index1 or 1)
                     return true
                 }
             }
@@ -41,9 +45,10 @@ class SolutionTest {
         val testData = loadTestJson(javaClass.packageName, TestJson.serializer())
 
         for (case in testData.test_cases) {
+            val msg = Json.encodeToString(Args.serializer(), case.args)
             val root = case.args.root.deserialize()
             val actual = Solution().isCousins(root, case.args.x, case.args.y)
-            assertEquals(case.expected, actual)
+            assertEquals(case.expected, actual, msg)
         }
     }
 

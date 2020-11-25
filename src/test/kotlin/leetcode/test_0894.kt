@@ -1,6 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
 package leetcode.test_0894
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import leetcode.util.TreeNode
 import leetcode.util.loadTestJson
 import leetcode.util.serialize
@@ -39,9 +42,10 @@ class SolutionTest {
         val testData = loadTestJson(javaClass.packageName, TestJson.serializer())
 
         for (case in testData.test_cases) {
+            val msg = Json.encodeToString(Args.serializer(), case.args)
             val actualNodes = Solution().allPossibleFBT(case.args.N)
             val actual = actualNodes.map { it.serialize() }
-            assertEquals(case.expected, actual)
+            assertEquals(case.expected, actual, msg)
         }
     }
 
