@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(1) space. Observation.
 class Solution {
     fun romanToInt(s: String): Int {
