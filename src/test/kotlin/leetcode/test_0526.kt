@@ -12,27 +12,27 @@ import kotlin.test.assertEquals
 class Solution {
     fun countArrangement(N: Int): Int {
         var result = 0
-        val used = BooleanArray(N + 1)
+        val pending = IntArray(N) { it + 1 }
 
         fun dfs(i: Int) {
-            if (i > N) {
+            if (i >= N) {
                 result++
+                return
             }
 
-            for (num in 1..N) {
-                if (used[num]) {
-                    continue
-                }
+            val index = i + 1
 
-                if (num == i || num > i && num % i == 0 || num < i && i % num == 0) {
-                    used[num] = true
+            for (j in i until N) {
+                val num = pending[j]
+                if (num == index || num > index && num % index == 0 || num < index && index % num == 0) {
+                    pending[i] = pending[j].also { pending[j] = pending[i] }
                     dfs(i + 1)
-                    used[num] = false
+                    pending[i] = pending[j].also { pending[j] = pending[i] }
                 }
             }
         }
 
-        dfs(1)
+        dfs(0)
         return result
     }
 }
