@@ -11,7 +11,6 @@ import leetcode.util.serialize
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(log(n)) space. Recursive DFS.
 class Solution {
     fun addOneRow(root: TreeNode?, v: Int, d: Int): TreeNode? {

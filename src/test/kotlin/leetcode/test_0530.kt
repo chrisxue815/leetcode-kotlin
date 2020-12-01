@@ -10,7 +10,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(log(n)) space. Recursive in-order traversal.
 class Solution {
     fun getMinimumDifference(root: TreeNode?): Int {

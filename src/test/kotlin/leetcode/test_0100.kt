@@ -10,7 +10,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(log(n)) space. Recursive pre-order traversal.
 class Solution {
     tailrec fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {

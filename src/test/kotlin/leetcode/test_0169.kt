@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(1) space. Majority vote.
 class Solution {
     fun majorityElement(nums: IntArray): Int {
@@ -29,7 +28,6 @@ class Solution {
         return major
     }
 }
-
 
 class SolutionTest {
     @Test

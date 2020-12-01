@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(len(nums) * (sum(nums) + max(nums))) time. O(len(nums) * (sum(nums) + max(nums))) space. DP, 0-1 knapsack.
 class Solution {
     fun findTargetSumWays(nums: IntArray, S: Int): Int {

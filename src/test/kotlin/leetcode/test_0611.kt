@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n^2) time. O(1) space. Sort, counting pairs in a sorted array.
 class Solution {
     fun triangleNumber(nums: IntArray): Int {

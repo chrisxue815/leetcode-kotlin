@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(1) space. Counting.
 class Solution {
     fun isAnagram(s: String, t: String): Boolean {

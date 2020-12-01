@@ -42,7 +42,6 @@ class Solution {
     }
 }
 
-
 class SolutionTest {
     @Test
     fun test() {

@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(log(n)) average, O(n) worst-case time. O(1) space. Binary search.
 class Solution {
     fun search(nums: IntArray, target: Int): Boolean {

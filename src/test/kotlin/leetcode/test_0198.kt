@@ -9,7 +9,6 @@ import kotlin.math.max
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(n) space. DP.
 class Solution {
     fun rob(nums: IntArray): Int {

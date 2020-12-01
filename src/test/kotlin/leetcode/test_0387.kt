@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(n) space. Hash table.
 class Solution {
     fun firstUniqChar(s: String): Int {

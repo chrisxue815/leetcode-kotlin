@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(len(coins) * amount) time. O(amount) space. Space-optimized DP, unbounded knapsack.
 class Solution {
     fun change(amount: Int, coins: IntArray): Int {

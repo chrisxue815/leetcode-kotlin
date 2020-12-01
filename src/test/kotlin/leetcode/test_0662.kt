@@ -12,7 +12,6 @@ import kotlin.math.max
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 data class NodeAndIndex(val node: TreeNode, val index: Int)
 
 // O(n) time. O(n) space. BFS.

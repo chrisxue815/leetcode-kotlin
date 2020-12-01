@@ -8,7 +8,6 @@ import leetcode.util.loadTestJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
 // O(n) time. O(n) space. Hash table.
 class Solution {
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
