@@ -1,8 +1,8 @@
 package leetcode.util
 
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Optional
 import java.util.stream.Stream
-import kotlin.collections.ArrayList
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

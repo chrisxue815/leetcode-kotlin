@@ -5,7 +5,6 @@ package leetcode.test_0485
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import leetcode.util.loadTestJson
-import java.lang.Integer.max
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -18,11 +17,11 @@ class Solution {
             if (num == 1) {
                 curr++
             } else {
-                result = max(result, curr)
+                result = Integer.max(result, curr)
                 curr = 0
             }
         }
-        return max(result, curr)
+        return Integer.max(result, curr)
     }
 }
 

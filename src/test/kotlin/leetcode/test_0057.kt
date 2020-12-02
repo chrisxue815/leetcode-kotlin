@@ -5,8 +5,6 @@ package leetcode.test_0057
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import leetcode.util.loadTestJson
-import java.lang.Integer.max
-import java.lang.Integer.min
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -26,8 +24,8 @@ class Solution {
             i++
         }
         if (loIndex < intervals.size && i > 0) {
-            val lo = min(intervals[loIndex][0], newInterval[0])
-            val hi = max(intervals[i - 1][1], newInterval[1])
+            val lo = Integer.min(intervals[loIndex][0], newInterval[0])
+            val hi = Integer.max(intervals[i - 1][1], newInterval[1])
             result.add(intArrayOf(lo, hi))
         } else {
             result.add(newInterval)
