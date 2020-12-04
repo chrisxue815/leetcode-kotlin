@@ -37,6 +37,10 @@ class Solution {
             i++
         }
 
+        if (leftDigitIndex == -1) {
+            return num
+        }
+
         var result = 0
         var multiple = 1
         i = 0
